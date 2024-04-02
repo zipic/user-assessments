@@ -1,0 +1,39 @@
+<main class="main">
+  <section class="section">
+    <table class="board" *ngFor="let user of assessments">
+      <img class="board__image" src="{{user.image_url}}" alt="photo">
+      <tr class="board__column">
+        <th class="board__column-name">name</th>
+        <td class="board__column-value">
+          {{user.name}}
+        </td>
+      </tr>
+      <tr class="board__column">
+        <th class="board__column-name">resolved</th>
+        <td class="board__column-value">
+          {{user.users_resolved}}
+        </td>
+      </tr>
+      <tr class="board__column">
+        <th class="board__column-name">active</th>
+        <td class="board__column-value">
+          {{user.active === true ? 'active': 'non-active'}}
+        </td>
+      </tr>
+      <button class="board__button" (click)="openGraph(user.id)">{{ isGraphOpen && selectedId === user.id ? 'Close Graph': 'Open Graph'}}</button>
+    </table>
+  </section>
+  <div *ngIf="isGraphOpen">
+    <div class="chart-container">
+      <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
+    </div>
+    <table class="graph" *ngFor="let item of graph.data | keyvalue">
+      <tr>
+        <th class="graph__table">{{ item.key }}</th>
+      </tr>
+      <tr>
+        <td class="graph__table">{{ item.value }}</td>
+      </tr>
+    </table>
+  </div>
+</main>

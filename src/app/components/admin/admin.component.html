@@ -1,0 +1,33 @@
+<div class="admin">
+  <app-main></app-main>
+  <button
+    class="open"
+    (click)="usersOpen()"
+  >
+    {{isUsersOpen ?'close menu':'show users'}}
+  </button>
+  <div *ngIf="isUsersOpen">
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th class="table-header">Name</th>
+        <th class="table-header">Last Name</th>
+        <th class="table-header">Date of Birth</th>
+        <th class="table-header">Education</th>
+        <th class="table-header">Role</th>
+        <th class="table-header">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersList" class="table-row">
+        <td class="table-data">{{ user.name }}</td>
+        <td class="table-data">{{ user.lastName }}</td>
+        <td class="table-data">{{ user.dateOfBirth }}</td>
+        <td class="table-data">{{ user.education }}</td>
+        <td class="table-data">{{ user.role }}</td>
+        <td class="table-data">{{ user.position }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
