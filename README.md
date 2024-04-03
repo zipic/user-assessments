@@ -18,8 +18,8 @@ Check out the live demo [here](https://zipic.github.io/user-assessments/).
 To run the project locally, follow these steps:
 
 1. **Clone the Repository:**
-   git clone https://github.com/zipic/store-test.git
-   cd store-test
+   git clone https://github.com/zipic/user-assessments.git
+   cd user-assessments
 2. **Install Dependencies:**
    npm install
 3. **Run the Development Server:**
